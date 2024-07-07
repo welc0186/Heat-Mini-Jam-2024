@@ -35,6 +35,8 @@ public class LifeIndicator : MonoBehaviour
     void LoseLife()
     {
         _lifeTotal = _lifeTotal - 1;
+        if (_lifeTotal < 0)
+            _lifeTotal = 0;
         lifeIndicators[_lifeTotal].SetActive(false);
         if (_lifeTotal <= 0)
         {

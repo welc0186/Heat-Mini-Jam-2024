@@ -25,7 +25,7 @@ public class PowerUpSpawner : MonoBehaviour
         var s = RandomUnoccupiedSlot();
         var p = UnityEngine.Random.Range(0, powerUpPrefabs.Length);
         Instantiate(powerUpPrefabs[p], _spawnSlots[s].transform);
-        
+
         var time = UnityEngine.Random.Range(spawnSeconds - spawnDeviationSeconds, spawnSeconds + spawnDeviationSeconds);
         CoroutineTimer.Init(time).Timeout += SpawnPowerUp;
     }

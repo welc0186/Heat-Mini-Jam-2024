@@ -9,16 +9,28 @@ public abstract class PowerUp : MonoBehaviour
 {
 
     public float ExpireSeconds = 5f;
+    CoroutineTimer _timerCoroutine;
 
     void OnEnable()
     {
-        GameObjectSelfDestructTimer.SelfDestruct(gameObject, ExpireSeconds);
+        _timerCoroutine = CoroutineTimer.Init(ExpireSeconds);
+        _timerCoroutine.Timeout += Expire;
+    }
+
+    void OnDisable()
+    {
+        _timerCoroutine.Timeout -= Expire;
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
             Perform();
+    }
+
+    protected void Expire()
+    {
+        Destroy(gameObject);
     }
 
     protected abstract void Perform();

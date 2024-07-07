@@ -28,7 +28,7 @@ public class GamePlayerInput : MonoBehaviour
         if(_pushed && inputAction.IsPressed())
         {
             _holdTimer += Time.deltaTime;
-            Debug.Log("Hold timer: " + _holdTimer);
+            // Debug.Log("Hold timer: " + _holdTimer);
         }
         
         if(_holdTimer >= HELD_THRESH)
