@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using Alf.Utils;
 using TMPro;
 using UnityEngine;
 
@@ -8,12 +7,21 @@ public class GameScoreManager : MonoBehaviour
 {
     
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] int scorePerSecond = 5;
 
     int _score;
 
     void OnEnable()
     {
         PlayerEvents.onPlayerScore.Subscribe(HandlePlayerScore);
+        CoroutineTimer.Init(1).Timeout += AddPeriodicScore;
+    }
+
+    private void AddPeriodicScore()
+    {
+        _score += scorePerSecond;
+        UpdateText();
+        CoroutineTimer.Init(1).Timeout += AddPeriodicScore;
     }
 
     void OnDisable()
