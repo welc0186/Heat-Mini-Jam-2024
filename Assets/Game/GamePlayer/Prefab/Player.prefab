@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2253911629886400664, guid: a88ff9ff028c29f458948683407a00d9, type: 3}
       propertyPath: m_Name
-      value: flame_idle
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: a88ff9ff028c29f458948683407a00d9, type: 3}
       propertyPath: m_TagString

@@ -24,13 +24,14 @@ public abstract class PowerUp : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        PlayerEvents.onPowerUpPickedUp.Invoke();
         if (other.gameObject.tag == "Player")
             Perform();
     }
 
     protected void Expire()
     {
-        Destroy(gameObject);
+        LeanTween.scale(gameObject, Vector3.zero, 0.2f).setOnComplete(() => Destroy(gameObject));
     }
 
     protected abstract void Perform();

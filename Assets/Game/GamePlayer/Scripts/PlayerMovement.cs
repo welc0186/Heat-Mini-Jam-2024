@@ -101,5 +101,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _direction = _direction == Vector3.right? Vector3.left : Vector3.right;
         PlayerEvents.onPlayerDirectionSet.Invoke(_direction);
+        PlayerEvents.onPlayerSwitchedDirection.Invoke();
     }
 }

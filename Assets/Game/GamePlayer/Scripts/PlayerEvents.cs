@@ -11,10 +11,13 @@ public static class PlayerEvents
     public static CustomEvent onPlayerMove = new();
     public static CustomEvent onPlayerSwitchDirection = new();
     public static CustomEvent<Vector3> onPlayerDirectionSet = new();
+    public static CustomEvent onPlayerSwitchedDirection = new();
     public static CustomEvent<PlayerSpeed> onPlayerSpeedSet = new();
     public static CustomEvent onPlayerLoseLife = new();
     public static CustomEvent onPlayerGainLife = new();
     public static CustomEvent<int> onPlayerScore = new();
     public static CustomEvent onPlayerDeath = new();
+    public static CustomEvent onPowerUpPickedUp = new();
+    public static CustomEvent onHeatWaveSpawned = new();
 
 }

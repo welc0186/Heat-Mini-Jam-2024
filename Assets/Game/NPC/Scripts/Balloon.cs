@@ -8,6 +8,8 @@ using UnityEngine;
 public class Balloon : MonoBehaviour
 {
 
+    const float HEATWAVE_OFFSET = 2f;
+
     [SerializeField] float startingImpulse = 50f;
     [SerializeField] float startForce = 1f;
     [SerializeField] float endForce = 0.2f;
@@ -15,15 +17,24 @@ public class Balloon : MonoBehaviour
     [SerializeField] private GameObject deathAnimation;
     [SerializeField] private TagDetectorCollider2D _playerDetector;
     [SerializeField] private TagDetectorCollider2D _floorDetector;
+    [SerializeField] private GameObject heatWavePrefab;
+
     float _force;
     float _forceTimer = 0;
     Rigidbody2D _rigidbody2D;
     Vector3 _prevPosition;
+    GameObject _heatWave;
 
     void OnEnable()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _force = startForce;
+    }
+
+    void OnDisable()
+    {
+        if(_heatWave != null)
+            Destroy(_heatWave);
     }
 
     void Start()
@@ -63,7 +74,18 @@ public class Balloon : MonoBehaviour
         if (!_playerDetector.Detected)
         {
             _forceTimer = 0;
+            if(_heatWave != null)
+                Destroy(_heatWave);
             return;
+        }
+
+        if(_heatWave == null)
+        {
+            var player = _playerDetector.DetectedGameObject;
+            var xPos = transform.position.x;
+            var yPos = player.transform.position.y + HEATWAVE_OFFSET;
+            _heatWave = Instantiate(heatWavePrefab, new Vector3(xPos, yPos, 0), Quaternion.identity);
+            PlayerEvents.onHeatWaveSpawned.Invoke();
         }
 
         _forceTimer += Time.deltaTime;

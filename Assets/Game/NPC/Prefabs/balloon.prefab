@@ -307,6 +307,7 @@ MonoBehaviour:
   deathAnimation: {fileID: 7914287598999974341, guid: 63038715ec1e27d4f95db7275ce85abe, type: 3}
   _playerDetector: {fileID: 2249251930661256898}
   _floorDetector: {fileID: 60560755739834127}
+  heatWavePrefab: {fileID: 4837266742345259238, guid: 6a1bcc0ef634a764a9e3f98d4cfbfd71, type: 3}
 --- !u!61 &5638415257807919433
 BoxCollider2D:
   m_ObjectHideFlags: 0
