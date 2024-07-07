@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Alf.GameManagement;
 using Alf.Utils;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerEvents.onPlayerMove.Subscribe(HandlePlayerMove);
         PlayerEvents.onPlayerSwitchDirection.Subscribe(SwitchDirection);
         PlayerEvents.onPlayerSpeedSet.Subscribe(SpeedBoost);
+        PlayerEvents.onPlayerDeath.Subscribe(HandlePlayerDeath);
     }
 
     void OnDisable()
@@ -26,6 +28,14 @@ public class PlayerMovement : MonoBehaviour
         PlayerEvents.onPlayerMove.Unsubscribe(HandlePlayerMove);
         PlayerEvents.onPlayerSwitchDirection.Unsubscribe(SwitchDirection);
         PlayerEvents.onPlayerSpeedSet.Unsubscribe(SpeedBoost);
+        PlayerEvents.onPlayerDeath.Unsubscribe(HandlePlayerDeath);
+    }
+
+    private void HandlePlayerDeath()
+    {
+        _speed = 0;
+        CoroutineTimer.Init(0.5f).Timeout += () => Time.timeScale = 0;
+        CoroutineTimer.Init(1, true).Timeout += () => GameEvents.onGameOver.Invoke();
     }
 
     private void SpeedBoost(PlayerSpeed speed)

@@ -15,5 +15,6 @@ public static class PlayerEvents
     public static CustomEvent onPlayerLoseLife = new();
     public static CustomEvent onPlayerGainLife = new();
     public static CustomEvent<int> onPlayerScore = new();
+    public static CustomEvent onPlayerDeath = new();
 
 }

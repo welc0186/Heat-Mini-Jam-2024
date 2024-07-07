@@ -10,6 +10,7 @@ public static class GameEvents
 
     public static CustomEvent onNewGame = new();
     public static CustomEvent onMainMenuEvent = new();
+    public static CustomEvent onGameOver = new();
 
 }
 }

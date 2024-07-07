@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Alf.GameManagement;
 using Alf.Utils;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -34,12 +35,11 @@ public class LifeIndicator : MonoBehaviour
     void LoseLife()
     {
         _lifeTotal = _lifeTotal - 1;
+        lifeIndicators[_lifeTotal].SetActive(false);
         if (_lifeTotal <= 0)
         {
-            Debug.Log("No more lives!");
-            return;
-        }
-        lifeIndicators[_lifeTotal].SetActive(false);
+            PlayerEvents.onPlayerDeath.Invoke();
+        }        
     }
 
     void AddLife()
