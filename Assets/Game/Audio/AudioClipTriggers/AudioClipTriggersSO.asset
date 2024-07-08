@@ -35,3 +35,13 @@ MonoBehaviour:
     - assemblyQualifiedName: PlayerSwitchEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     stopTriggers: []
+  - audioClip: {fileID: 11400000, guid: e44b191a3abf4a94bb01d1aa5887856a, type: 2}
+    startTriggers:
+    - assemblyQualifiedName: MainMenuCustomEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stopTriggers: []
+  - audioClip: {fileID: 11400000, guid: e89a57b4f5d9b8149a6781d272f4fb4d, type: 2}
+    startTriggers:
+    - assemblyQualifiedName: GameOverCustomEvent, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    stopTriggers: []

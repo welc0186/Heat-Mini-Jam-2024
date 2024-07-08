@@ -14,6 +14,7 @@ public class NewGameInvoker : MonoBehaviour
     void OnEnable()
     {
         Time.timeScale = 1;
+        GameEvents.onMainMenuLoaded.Invoke();
         CoroutineTimer.Init(waitSeconds).Timeout += () => GameEvents.onNewGame.Invoke();
     }
 

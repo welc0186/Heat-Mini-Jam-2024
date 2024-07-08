@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1598d2e4e4083940b17feb3a40cfa07, type: 3}
   m_Name: title_themeSO
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 75d8d5ea949df8141a02149c06bbbccd, type: 3}
-  volume: 0.15
-  loop: 1
+  audioClip: {fileID: 8300000, guid: 3129a4e7bcabfd642a1c6ff26eed178c, type: 3}
+  volume: 0.7
+  loop: 0

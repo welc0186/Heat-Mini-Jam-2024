@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: heating_balloonSO
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 0d9a9bce1bfd4c342b94d0a8b48e4da3, type: 3}
-  volume: 0.4
+  volume: 0.1
   loop: 0

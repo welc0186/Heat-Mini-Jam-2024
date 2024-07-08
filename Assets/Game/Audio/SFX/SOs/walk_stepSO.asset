@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: walk_stepSO
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 6012c5edbe5c7fa47bd9bcaeb57ea282, type: 3}
-  volume: 1
+  volume: 0.6
   loop: 0
