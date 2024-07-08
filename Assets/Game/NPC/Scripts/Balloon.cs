@@ -10,7 +10,7 @@ public class Balloon : MonoBehaviour
 
     const float HEATWAVE_OFFSET = 2f;
 
-    [SerializeField] float startingImpulse = 50f;
+    [SerializeField] float startingImpulse = 0.2f;
     [SerializeField] float startForce = 1f;
     [SerializeField] float endForce = 0.2f;
     [SerializeField] float maxVelocity = 10f;
@@ -42,7 +42,7 @@ public class Balloon : MonoBehaviour
         _rigidbody2D.AddForce(Vector3.up * UnityEngine.Random.Range(0, startingImpulse), ForceMode2D.Impulse);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(_floorDetector.Detected)
         {
@@ -88,7 +88,7 @@ public class Balloon : MonoBehaviour
             PlayerEvents.onHeatWaveSpawned.Invoke();
         }
 
-        _forceTimer += Time.deltaTime;
+        _forceTimer += Time.fixedDeltaTime;
         _force = Mathf.Lerp(startForce, endForce, _forceTimer);
         _rigidbody2D.AddForce(Vector2.up * _force, ForceMode2D.Force);
     }

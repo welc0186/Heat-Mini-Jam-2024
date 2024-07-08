@@ -9,7 +9,7 @@ public class BalloonSpawner : MonoBehaviour
     
     [SerializeField] GameObject balloonPrefab;
     
-    const int BASE_MIN_BALLOONS = 3;
+    const int BASE_MIN_BALLOONS = 2;
     const float RAMP_SECONDS = 60;
     
     List<GameObject> _spawnSlots;
