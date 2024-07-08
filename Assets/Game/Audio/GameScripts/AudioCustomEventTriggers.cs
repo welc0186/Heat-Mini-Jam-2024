@@ -9,4 +9,4 @@ public class BalloonCrashEvent         : ICustomEvent {public CustomEvent Event 
 public class PowerUpPickupEvent        : ICustomEvent {public CustomEvent Event => PlayerEvents.onPowerUpPickedUp;}
 public class HeatWaveSpawnedEvent      : ICustomEvent {public CustomEvent Event => PlayerEvents.onHeatWaveSpawned;}
 public class PlayerMoveEvent           : ICustomEvent {public CustomEvent Event => PlayerEvents.onPlayerMove;}
-public class PlayerSwitchEvent         : ICustomEvent {public CustomEvent Event => PlayerEvents.onPlayerSwitchedDirection;}
+public class PlayerSwitchEvent         : ICustomEvent {public CustomEvent Event => PlayerEvents.onPlayerInputPressed;}

@@ -19,5 +19,7 @@ public static class PlayerEvents
     public static CustomEvent onPlayerDeath = new();
     public static CustomEvent onPowerUpPickedUp = new();
     public static CustomEvent onHeatWaveSpawned = new();
+    public static CustomEvent onPlayerInputPressed = new();
+    public static CustomEvent onPlayerInputReleased = new();
 
 }

@@ -8,15 +8,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
+    const float SWITCH_THRESHOLD = 0.15f;
+    
     public const float BASE_SPEED = 4f;
     float _speed = BASE_SPEED;
+    float _switchTimer = 0;
+    bool _pressed = false;
     bool _moving = true;
     Vector3 _direction = Vector3.right;
 
     void OnEnable()
     {
-        PlayerEvents.onPlayerStop.Subscribe(HandlePlayerStop);
-        PlayerEvents.onPlayerMove.Subscribe(HandlePlayerMove);
+        PlayerEvents.onPlayerInputPressed.Subscribe(HandleInputPressed);
+        PlayerEvents.onPlayerInputReleased.Subscribe(HandleInputReleased);
         PlayerEvents.onPlayerSwitchDirection.Subscribe(SwitchDirection);
         PlayerEvents.onPlayerSpeedSet.Subscribe(SpeedBoost);
         PlayerEvents.onPlayerDeath.Subscribe(HandlePlayerDeath);
@@ -24,11 +28,21 @@ public class PlayerMovement : MonoBehaviour
 
     void OnDisable()
     {
-        PlayerEvents.onPlayerStop.Unsubscribe(HandlePlayerStop);
-        PlayerEvents.onPlayerMove.Unsubscribe(HandlePlayerMove);
+        PlayerEvents.onPlayerInputPressed.Unsubscribe(HandleInputPressed);
+        PlayerEvents.onPlayerInputReleased.Unsubscribe(HandleInputReleased);
         PlayerEvents.onPlayerSwitchDirection.Unsubscribe(SwitchDirection);
         PlayerEvents.onPlayerSpeedSet.Unsubscribe(SpeedBoost);
         PlayerEvents.onPlayerDeath.Unsubscribe(HandlePlayerDeath);
+    }
+
+    private void HandleInputReleased()
+    {
+        _pressed = false;
+    }
+
+    private void HandleInputPressed()
+    {
+        _pressed = true;
     }
 
     private void HandlePlayerDeath()
@@ -49,32 +63,32 @@ public class PlayerMovement : MonoBehaviour
         PlayerEvents.onPlayerDirectionSet.Invoke(_direction);
     }
 
-    private void HandlePlayerMove()
-    {
-        _moving = true;
-    }
-
-    private void HandlePlayerStop()
-    {
-        _moving = false;
-    }
-
-    public void Move(bool move)
-    {
-        _moving = move;
-    }
-
     // Update is called once per frame
     void Update()
     {
+        HandlePressed();
         HandleMove();
     }
 
-    private void HandleMove()
+    private void HandlePressed()
     {
-        if (!_moving)
+        if(!_pressed)
+        {
+            if (_switchTimer > 0 && _switchTimer < SWITCH_THRESHOLD)
+                SwitchDirection();
+            _switchTimer = 0;
+            _moving = true;
             return;
-        
+        }
+
+        _switchTimer += Time.deltaTime;
+        _moving = false;
+    }
+
+    private void HandleMove()
+    {        
+        if(!_moving)
+            return;
         transform.Translate(_direction * _speed * Time.deltaTime);
     }
 

@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 10, z: 1}
+  m_LocalScale: {x: 1.5, y: 14, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2234622960728480231}
@@ -195,6 +195,14 @@ PrefabInstance:
     - target: {fileID: -2253911629886400664, guid: 5eb5a4eddb272824099ee7fd5245ac29, type: 3}
       propertyPath: m_Name
       value: balloon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 5eb5a4eddb272824099ee7fd5245ac29, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 5eb5a4eddb272824099ee7fd5245ac29, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1691508021
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5eb5a4eddb272824099ee7fd5245ac29, type: 3}
       propertyPath: m_LocalPosition.x

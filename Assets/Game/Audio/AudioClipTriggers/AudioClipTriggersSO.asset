@@ -30,8 +30,6 @@ MonoBehaviour:
     stopTriggers: []
   - audioClip: {fileID: 11400000, guid: c760f0d5c51822f48863b8bc2b65deda, type: 2}
     startTriggers:
-    - assemblyQualifiedName: PlayerMoveEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
     - assemblyQualifiedName: PlayerSwitchEvent, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
     stopTriggers: []

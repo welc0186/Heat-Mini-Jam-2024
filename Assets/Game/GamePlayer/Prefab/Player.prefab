@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: a88ff9ff028c29f458948683407a00d9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: a88ff9ff028c29f458948683407a00d9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1691508021
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: a88ff9ff028c29f458948683407a00d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

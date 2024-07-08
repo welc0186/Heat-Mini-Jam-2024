@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackClouds
+    uniqueID: 2566073957
+    locked: 0
+  - name: Player
+    uniqueID: 1691508021
+    locked: 0
+  - name: FrontClouds
+    uniqueID: 1035405003
+    locked: 0
